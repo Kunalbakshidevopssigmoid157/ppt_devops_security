@@ -24,10 +24,7 @@
 # For more information on the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # For more samples to get started with GitHub Action workflows to deploy to Azure: https://github.com/Azure/actions-workflow-samples
 
-name: Build and deploy a container to an Azure Web App
-
-env:
-  AZURE_WEBAPP_NAME: your-app-name  # set this to the name of your Azure Web App
+name: Build the images
 
 on:
   push:
@@ -43,44 +40,27 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
-
-      - name: Log in to GitHub container registry
-        uses: docker/login-action@v1.10.0
+      
+      - name: Login to ACR
+        uses: azure/docker-login@v1
         with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ github.token }}
+          login-server: ${{ secrets.ACR_NAME }}.azurecr.io
+          username: ${{ secrets.AZURE_CLIENT_ID }}
+          password: ${{ secrets.AZURE_CLIENT_SECRET }}
 
-      - name: Lowercase the repo name and username
-        run: echo "REPO=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
-
-      - name: Build and push container image to registry
-        uses: docker/build-push-action@v2
+      - name: Build Docker image
+        run: |
+          docker build -t your-docker-image:latest .
+          
+      - name: Push the image
+        run: |
+          docker tag your-image-name:your-tag your-acr-login-server/your-image-name:your-tag
+          docker push your-acr-login-server/your-image-name:your-tag
+         
+      - name: Scan Docker image using Trivy
+        uses: aquasecurity/trivy-action@v1
         with:
-          push: true
-          tags: ghcr.io/${{ env.REPO }}:${{ github.sha }}
-          file: ./Dockerfile
-
-  deploy:
-    permissions:
-      contents: none
-    runs-on: ubuntu-latest
-    needs: build
-    environment:
-      name: 'Development'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-
-    steps:
-      - name: Lowercase the repo name and username
-        run: echo "REPO=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
-
-      - name: Deploy to Azure Web App
-        id: deploy-to-webapp
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: ${{ env.AZURE_WEBAPP_NAME }}
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          images: 'ghcr.io/${{ env.REPO }}:${{ github.sha }}'
+          image-ref: your-docker-image:latest
+          registry-username: ${{ secrets.REGISTRY_USERNAME }}
+          registry-password: ${{ secrets.REGISTRY_PASSWORD }}
+        
