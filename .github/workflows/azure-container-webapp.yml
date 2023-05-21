@@ -41,6 +41,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
+      - name: Set up Trivy
+        run: |
+          wget https://github.com/aquasecurity/trivy/releases/download/v0.18.3/trivy_0.18.3_Linux-64bit.tar.gz
+          tar zxvf trivy_0.18.3_Linux-64bit.tar.gz
+          sudo mv trivy /usr/local/bin/
+          trivy --version
+
       - name: Login to ACR
         uses: azure/docker-login@v1
         with:
@@ -51,16 +58,12 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t your-docker-image:latest .
+          trivy image --password your-password your-image:your-tag
           
       - name: Push the image
         run: |
           docker tag your-image-name:your-tag your-acr-login-server/your-image-name:your-tag
           docker push your-acr-login-server/your-image-name:your-tag
          
-      - name: Scan Docker image using Trivy
-        uses: aquasecurity/trivy-action@v1
-        with:
-          image-ref: your-docker-image:latest
-          registry-username: ${{ secrets.REGISTRY_USERNAME }}
-          registry-password: ${{ secrets.REGISTRY_PASSWORD }}
+
         
