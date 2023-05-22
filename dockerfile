@@ -4,8 +4,6 @@ FROM nginx:latest
 RUN rm /usr/share/nginx/html/index.html
 
 # Copy the project files into the nginx document root directory
-COPY project /usr/share/nginx/html
-
 
 RUN apt-get install -y openssl
 
@@ -17,4 +15,5 @@ RUN chmod 600 /app/private.key
 
 ENV DOCKER_CONTENT_TRUST=1
 
-EXPOSE 8000
+COPY project /usr/share/nginx/html
+
