@@ -9,7 +9,6 @@ COPY private.key /path/to/private.key
 
 RUN chmod 400 /path/to/private.key
 
-# Additional steps for your Docker image configuration
 
 
 ENV DOCKER_CONTENT_TRUST=1
