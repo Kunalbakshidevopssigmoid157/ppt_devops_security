@@ -41,6 +41,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
+      - name: Log in to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      
       - name: Set up Trivy
         run: |
           wget https://github.com/aquasecurity/trivy/releases/download/v0.18.3/trivy_0.18.3_Linux-64bit.tar.gz
@@ -48,12 +53,6 @@ jobs:
           sudo mv trivy /usr/local/bin/
           trivy --version
      
-      - name: Log in to Azure
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-    
-
           
       - name: Log in to Docker Hub
         uses: docker/login-action@v1
@@ -64,9 +63,9 @@ jobs:
           
       - name: Push the image
         run: |
-          docker build -t your-dockerhub-username/your-image-name .
-          docker push your-dockerhub-username/your-image-name
-           trivy image --password your-password your-image:your-tag
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }} .
+          docker push  ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }} .
+           trivy image ${{ secrets.DOCKERHUB_IMAGE }}:latest
          
 
         
