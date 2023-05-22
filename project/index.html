@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <title>Twirrer</title>
+  </head>
+  <body>
+    <!-- Main Page -->
+    <section id="mainPage">
+      <!-- left -->
+      <div id="mainPageLeftWrapper">
+        <div id="mainPageLeft">
+          <div class="mainPageLeftHeadingWrapper">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <h3 class="mainPageLeftHeading">Find your interests</h3>
+          </div>
+          <div class="mainPageLeftHeadingWrapper">
+            <i class="fa-solid fa-user-group"></i>
+            <h3 class="mainPageLeftHeading">
+              Explore what people are talking about
+            </h3>
+          </div>
+          <div class="mainPageLeftHeadingWrapper">
+            <i class="fa-solid fa-comment"></i>
+            <h3 class="mainPageLeftHeading">Join the people</h3>
+          </div>
+        </div>
+      </div>
+      <!-- left end -->
+      <!-- right -->
+      <div id="mainPageRight">
+        <form id="mainPageRightTop" action="#">
+          <input
+            type="text"
+            id="mainPageuserName"
+            placeholder="Phone, email, or Username"
+          />
+          <div id="mainPageRightTop1">
+            <input
+              type="password"
+              id="mainPagepassword"
+              placeholder="Password"
+            />
+            <label for="password" id="mainPagepasswordLabel"
+              >Forgot Password?</label
+            >
+            <button id="mainPageToplogin">LogIn</button>
+          </div>
+        </form>
+        <div id="mainPagebottom">
+          <i id="mainPagetwirrerIcon" class="fa-brands fa-twitter"></i>
+          <h1 id="mainPageBottomHeading1">
+            Explore what's hapenning in the world
+          </h1>
+          <h3 id="mainPageBottomHeading3">Join Twirrer today</h3>
+          <button class="mainPageBootomButon" id="mainPageBottomSignup">souvik</button>
+          <button class="mainPageBootomButon" id="mainPageBottomLogin">LogIn</button>
+        </div>
+      </div>
+      <!-- right end -->
+      <!-- footer -->
+      <footer id="mainPageFoot">
+        <ul>
+          <a href="#"><li>About</li></a>
+          <a href="#"><li>Blog</li></a>
+          <a href="#"><li>Help</li></a>
+          <a href="#"><li>Terms</li></a>
+          <a href="#"><li>Apps</li></a>
+          <a href="#"><li>Settings</li></a>
+          <a href="#"><li>Contact</li></a>
+          <a href="#"><li>Status</li></a>
+          <a href="#"><li>Privacy Policy</li></a>
+          <a href="#"><li>Brand</li></a>
+          <a href="#"><li>Developers</li></a>
+          <a href="#"><li>© 2019 Twirrer</li></a>
+        </ul>
+      </footer>
+      <!-- footer end -->
+    </section>
+    <!-- Main Page end -->
+    <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- loginPage -->
+    <section id="loginPage">
+      <!-- loginPagenavigationBar -->
+      <nav id="loginPageNav">
+        <ul>
+          <li id="loginPageNavHome">
+            <a href="#">
+              <i id="loginPageNavIcon" class="fa-brands fa-twitter"></i>Home</a
+            >
+          </li>
+          <li id="loginPageNavAbout"><a href="#">About</a></li>
+          <li id="loginPageNavLang"><a href="#">Language:English</a></li>
+        </ul>
+      </nav>
+      <!-- loginPagenavigationBarEnd -->
+      <!-- login -->
+      <div id="loginWrapper">
+        <div id="login">
+          <h1 id="loginPageHeading1">Log in to Twirrer</h1>
+          <form action="#">
+            <input
+              type="text"
+              id="loginPageInputUsername"
+              class="loginPageInput"
+              placeholder="Phone, email, or Username"
+            />
+            <input
+              type="password"
+              id="loginPageInputPassword"
+              class="loginPageInput"
+              placeholder="Password"
+            />
+            <div id="loginPageFormBottom">
+              <button id="loginPageLoginBtn">LogIn</button>
+              <input type="checkbox" id="loginPageCheck" />
+              <label for="checkbox" id="loginPageCheckLabel">
+                Remember me
+              </label>
+              <a href="#" id="loginPageForgotPass"> Forgot Password? </a>
+            </div>
+          </form>
+        </div>
+        <!-- loginPageFooter -->
+          <footer id="loginPageFoot">
+            <div id="loginPageFootSignUp">
+              New to twirrer?<a href="#">Sign up now</a> 
+            </div>
+            <div id="loginPageFootActivateAcc">
+              Already using Twirrer
+              via text message?<a href="#">Activate your account</a>
+            </div>
+          </div>
+        </footer>
+        <!-- loginPageFooterEnd -->
+      </div>
+      <!-- loginEnd -->
+      <!-- loginPageModelBox -->
+      <div id="loginPageModelBox">
+        <i id="loginPageModelBoxIcon" class="fa-solid fa-xmark"></i>
+        <p id="loginPageModelBoxPara">
+          The Username And Password You Entered Didn't Match. Please Double Check and Try Again.
+        </p>
+      </div>
+      <!-- loginPageModelBoxEnd -->
+    </section>
+    <!-- loginPageEnd -->
+    <!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+      <!-- newsFeedPage -->
+      <section class="newsfeedPageWrap dark1" id="newsfeedPageWrap">
+       <!-- newsFeedPagenavigationBar -->
+       <nav class="newsFeedNav dark2" id="newsFeedNav">
+        <div class="newsFeedPageIconWrapper">
+        <i  class="fa-solid fa-house-user" id="newsFeedHome"></i>
+        <i class="fa-solid fa-hashtag" ></i>
+        <i class="fa-solid fa-bell"></i>
+        <i  class="fa-solid fa-envelope"></i>
+      </div>
+      <div class="newsFeedSearchWrap">
+        <i  class="fa-solid fa-magnifying-glass newsFeedSearchIcon"></i>
+        <input type="text" placeholder="Search Twirrer" class="newsFeedSearch dark1 text border">
+      </div>
+        <div class="newsFeedNavImageWrapper">
+        <img class="newsFeedNavImage" src="img/user1.jpg" alt="This Is An Image">
+      </div>
+        <p class="newsFeedNavprofileId text" id="newsFeedNavprofileId">Jane Smith<i class="fa-solid fa-angle-down"></i></p>
+      </nav>
+      <!-- newsFeedPagenavigationBarEnd -->
+      <!-- feedPage -->
+      <div class="newsFeedPage" id="newsFeedPage">
+        <!-- newsFeedPageHome -->
+      <div class="newsFeedPageHomeWrap">
+          <div class="newsFeedPageHome dark2 border">
+          <p class="text">Home</p>
+          <i class="fa-solid fa-star"></i>
+          </div>
+          <div class="newsFeedWhatsHapning dark2 border">
+           <div class="newsfeedWhatsHapningImgWrap">
+             <img class="newsfeedWhatsHapningImg" src="img/user1.jpg" alt="This Is An Image">
+           </div>
+           <input type="text" placeholder="What's happening?" class="newsfeedWhatsHapninginput dark1 text border">
+           <div class="newsFeedWhatsHappeningIconGroup">
+           <i class="fa-regular fa-image"></i>
+           <i class="fa-solid fa-camera"></i>
+           <i class="fa-solid fa-chart-line"></i>
+          </div>
+          </div>
+      </div>
+      <!-- newsFeedPageHomeEnd -->
+      <!-- newsFeedPagePost1 -->
+      <div  class="newsFeedPagePost1Wrap dark2 border" >
+        <div id="newsFeedPagePost1ImgWrap">
+        <img src="img/user2.jpg" id="newsFeedPagePost1Img"alt="This Is An Image">
+         </div>
+         <div id="newsFeedPagePost1ContentWrap">
+           <h1 class="newsFeedPagePost1H1 text">Helen Brown</h1>
+           <i id="newsFeedPagePost1Icon" class="fa-solid fa-circle-check"></i>
+           <h3 class="newsFeedPagePost1H3 text">@helenbrown 15m</h3>
+          </div>
+           <p class="newsFeedPagePost1Para text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio eaque doloribus consequuntur non blanditiis inventore. </p>
+           <img id="newsFeedPagePost1img" src="img/post-img-1.jpg" alt="This Is An Image">
+           <div id="newsfeedPost1FootIcon">
+            <i class="fa-solid fa-thumbs-up"></i>
+            <i class="fa-solid fa-comment"></i>
+            <i class="fa-solid fa-share-nodes"></i>
+            <i class="fa-solid fa-heart"></i>
+          </div>
+      </div>
+      <!-- newsFeedPagePost1End -->
+      <!-- newsFeedPagePost2 -->
+      <div class="newsFeedPagePost2Wrap dark2 border">
+        <div id="newsFeedPagePost2ImgWrap">
+        <img src="img/user3.jpg" id="newsFeedPagePost2Img"alt="This Is An Image">
+         </div>
+         <div id="newsFeedPagePost2ContentWrap">
+           <h1 class="newsFeedPagePost2H1 text">Jane Doe</h1>
+           <i id="newsFeedPagePost2Icon" class="fa-solid fa-circle-check"></i>
+           <h3 class="newsFeedPagePost2H3 text">@janedoe 35m</h3>
+          </div>
+           <p class="newsFeedPagePost2Para text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio eaque doloribus consequuntur non blanditiis inventore. </p>
+           <img id="newsFeedPagePost2img" src="img/post-img-2.jpg" alt="This Is An Image">
+           <div id="newsfeedPost2FootIcon">
+            <i class="fa-solid fa-thumbs-up"></i>
+            <i class="fa-solid fa-comment"></i>
+            <i class="fa-solid fa-share-nodes"></i>
+            <i class="fa-solid fa-heart"></i>
+          </div>
+      </div>
+      <!-- newsFeedPagePost2End -->
+      <!-- newsFeedPagePost3 -->
+      <div class="newsFeedPagePost3Wrap dark2 border">
+        <div id="newsFeedPagePost3ImgWrap">
+        <img src="img/user4.jpg" id="newsFeedPagePost3Img"alt="This Is An Image">
+         </div>
+         <div id="newsFeedPagePost3ContentWrap">
+           <h1 class="newsFeedPagePost3H1 text">John Thompson</h1>
+           <i id="newsFeedPagePost3Icon" class="fa-solid fa-circle-check"></i>
+           <h3 class="newsFeedPagePost3H3 text">@johnthompson 56m</h3>
+          </div>
+           <p class="newsFeedPagePost3Para text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio eaque doloribus consequuntur non blanditiis inventore. </p>
+           <img id="newsFeedPagePost3img" src="img/post-img-3.jpg" alt="This Is An Image">
+           <div id="newsfeedPost3FootIcon">
+            <i class="fa-solid fa-thumbs-up"></i>
+            <i class="fa-solid fa-comment"></i>
+            <i class="fa-solid fa-share-nodes"></i>
+            <i class="fa-solid fa-heart"></i>
+          </div>
+      </div>
+      <!-- newsFeedPagePost3End -->
+      <!-- newsFeedPagePost4 -->
+      <div class="newsFeedPagePost4Wrap dark2 border">
+        <div id="newsFeedPagePost4ImgWrap">
+        <img src="img/user5.jpg" id="newsFeedPagePost4Img"alt="This Is An Image">
+         </div>
+         <div id="newsFeedPagePost4ContentWrap">
+           <h1 class="newsFeedPagePost4H1 text">James Dias</h1>
+           <i id="newsFeedPagePost4Icon" class="fa-solid fa-circle-check"></i>
+           <h3 class="newsFeedPagePost4H3 text">@jamesdias 1h 07m</h3>
+          </div>
+           <p class="newsFeedPagePost4Para text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio eaque doloribus consequuntur non blanditiis inventore. </p>
+           <img id="newsFeedPagePost4img" src="img/post-img-4.jpg" alt="This Is An Image">
+           <div id="newsfeedPost4FootIcon">
+            <i class="fa-solid fa-thumbs-up"></i>
+            <i class="fa-solid fa-comment"></i>
+            <i class="fa-solid fa-share-nodes"></i>
+            <i class="fa-solid fa-heart"></i>
+          </div>
+      </div>
+      <!-- newsFeedPagePost4End -->
+       <!-- newsFeedPagePost5 -->
+       <div class="newsFeedPagePost5Wrap dark2 border">
+        <div id="newsFeedPagePost5ImgWrap">
+        <img src="img/user6.jpg" id="newsFeedPagePost5Img"alt="This Is An Image">
+         </div>
+         <div id="newsFeedPagePost5ContentWrap">
+           <h1 class="newsFeedPagePost5H1 text">Nick Johnson</h1>
+           <i id="newsFeedPagePost5Icon" class="fa-solid fa-circle-check"></i>
+           <h3 class="newsFeedPagePost5H3 text">@nickjohnson 1h 37m</h3>
+          </div>
+           <p class="newsFeedPagePost5Para text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio eaque doloribus consequuntur non blanditiis inventore. </p>
+           <img id="newsFeedPagePost5img" src="img/post-img-5.jpg" alt="This Is An Image">
+           <div id="newsfeedPost5FootIcon">
+            <i class="fa-solid fa-thumbs-up"></i>
+            <i class="fa-solid fa-comment"></i>
+            <i class="fa-solid fa-share-nodes"></i>
+            <i class="fa-solid fa-heart"></i>
+          </div>
+      </div>
+      <!-- newsFeedPagePost5End -->
+      <!-- whoToFollow -->
+      <div class="whoToFollowWrap"> 
+      <div class="whoToFollow">
+        <div class="whoToFollow1stElement dark2 text border">
+         Who to follow
+        </div>
+        <div class="whoToFollow2ndElement whoToFollowElements dark2 border">
+          <div class="whoToFollowImgWrap">
+          <img class="whoToFollowImg" src="img/user3.jpg" alt="This Is An Image">
+        </div>
+          <p class="whoToFollowpara text">
+            Ann Smith <br>
+            @annsmith
+          </p>
+          <button class="whoToFollowbutton1 dark1">Follow</button>
+        </div>
+        <div class="whoToFollow3rdElement whoToFollowElements dark2 border">
+          <div class="whoToFollowImgWrap">
+          <img class="whoToFollowImg" src="img/user4.jpg" alt="This Is An Image">
+        </div>
+          <p class="whoToFollowpara text">
+            Nick Doe <br>
+            @nickdoe
+          </p>
+          <button  class="whoToFollowbutton2 dark1">Follow</button>
+        </div>
+        <div class="whoToFollow4thElement whoToFollowElements dark2 border">
+          <div class="whoToFollowImgWrap">
+          <img class="whoToFollowImg" src="img/user5.jpg  " alt="This Is An Image">
+        </div>
+          <p class="whoToFollowpara text">
+            James Black <br>
+            @jamesblack
+          </p>
+          <button  class="whoToFollowbutton3 dark1">Follow</button>
+        </div>
+        <div class="whoToFollow5thElement whoToFollowElements dark2 border">
+          <a href="#">Show more</a>
+        </div>
+        <div class="whoToFollowFoot">
+          <a>Terms</a>
+          <a>Privacy policy</a>
+          <a>Cookies</a>
+          <a>About</a>
+          <a>More</a>
+        </div>
+      </div>
+    </div>
+      <!-- whoToFollowEnd -->
+    <!-- postButton -->
+    <div id="postButonWrap">
+      <div id="postButonContent">
+      <i id="postButtonPlusIcon" class="fa-solid fa-plus"></i>
+      <i id="postButtonFeatherIcon" class="fa-solid fa-feather-pointed"></i>
+      <button id="postButton">Post</button>
+    </div>
+    </div>
+    <!-- postButtonEnd -->
+    <!-- newsFeedModelBox -->
+    <div class="newsFeedModelBoxWrap " id="newsFeedModelBoxWrap">
+       <div class="newsFeedModelBox dark2">
+          <div class="newsFeedModelBoxHeader">
+            <i class="fa-solid fa-xmark"  id="newsFeedModelBoxHeaderIcon"></i>
+            <button class="newsFeedModelBoxHeaderButton" id="newsFeedModelBoxHeaderButton">Post</button>
+          </div>
+          <div class="newsFeedModelBoxBody">
+            <div class="newsFeedModelBoxImgWrap" ><img src="img/user1.jpg" alt="This Is An Image"  ></div>
+           <input type="text" class="newsFeedModelBoxBodyInput dark1 text border" id="newsFeedModelBoxBodyInput" placeholder="What's happening?" autocomplete="off">
+           <i class="newsFeedModelBoxBodyIcon" class="fa-solid fa-face-smile"></i>
+          </div>
+          <div class="newsFeedFooter">
+          <span class="newsFeedFooterIconGroup">
+            <i class="fa-regular fa-image" ></i>
+           <i class="fa-solid fa-camera" ></i>
+           <i class="fa-solid fa-chart-line" ></i>
+          </span>
+            <i class="fa-solid fa-circle-plus"  id="newsFeedFooterIconPlus"></i>
+          </div>
+       </div>
+    </div>
+    <!-- newsFeedModelBoxEnd -->
+    <!-- newsFeedSidebar-->
+  <div id="newsFeedSidebarWrap" class="newsFeedSidebarWrap">
+      <div id="newsFeedSidebar" class="newsFeedSidebar dark2">
+
+        <div class="newsFeedSidebarHeader text border">
+            Account info
+            <i id="newsFeedSidebarHeaderIcon" class="fa-solid fa-xmark"></i>
+        </div>
+        
+      <div class="newsFeedSidebarMiddleContent border">
+        <div id="newsFeedSidebarMiddleContent1st" >
+          <div id="newsFeedSidebarMiddleContentImgWrap">
+            <img src="img/user1.jpg" alt="This Is An Image" width="40px">
+           </div>
+           <i id="newsFeedSidebarMiddleContentIcon" class="fa-solid fa-circle-plus"></i>
+        </div>
+         
+        <div class="newsFeedSidebarMiddleContent2nd text">
+            <span id="newsFeedSidebarMiddleContent2ndPara">Jane Smith</span>
+            <br>
+           @janesmith
+      </div> 
+
+       <div class="newsFeedSidebarMiddleContent3rd text">
+       <b class="newsFeedSidebarMiddleContent3rdBold">711</b>Following
+       <span><b class="newsFeedSidebarMiddleContent3rdBold">7.5K</b>Followers</span> 
+       </div>
+
+       <ul id="newsFeedSidebarMiddleContent4th">
+        <li><i class="fa-solid fa-user"></i>Profile</li>
+        <li><i class="fa-solid fa-list"></i>Lists</li>
+        <li><i class="fa-solid fa-bookmark"></i>Bookmarks</li>
+        <li><i class="fa-solid fa-rectangle-ad"></i>Ads</li>
+        <li><i class="fa-solid fa-chart-line"></i>Analytics</li>
+       </ul>
+
+      </div>
+
+      <div id="newsFeedSidebarFooter">
+        <ul id="newsFeedSidebarFooterList">
+         <li>Settings and Privacy</li>
+         <li>Help Center</li>
+         <li>Log Out</li>
+        </ul>
+      </div>
+<!-- toggleButton -->
+         <div id="toggleButton">
+           <p id="togleButonLabel">Dark Mode</p> 
+          <div class="rectangleBox">
+            <span id="circleBox" class="circleBox"></span>
+          </div>
+        </div>
+<!-- toggleButtonEnd -->
+    </div>
+  </div>
+    <!-- newsFeedSidebarEnd -->
+      </div>
+      <!-- fedPageEnd -->
+    </section>
+      <!-- newsFeedPageEnd -->
+    <script src="index.js"></script>
+  </body>
+</html>
