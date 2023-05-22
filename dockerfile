@@ -4,8 +4,10 @@ FROM nginx:latest
 RUN rm /usr/share/nginx/html/index.html
 
 # Copy the project files into the nginx document root directory
+COPY private.key /path/to/private.key
 
 
+RUN chmod 400 /path/to/private.key
 
 # Additional steps for your Docker image configuration
 
