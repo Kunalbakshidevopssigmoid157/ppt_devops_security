@@ -41,7 +41,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      
+      - name: Install OpenSSL
+        run: sudo apt-get update && sudo apt-get install -y openssl
+
+      - name: Generate Private Key
+        run: |
+          openssl genrsa -out private.key 2048
+
+      - name: Save Private Key as Secret
+        run: |
+          echo "${{ secrets.PRIVATE_KEY }}" > private.key
       
           
       - name: Log in to Docker Hub
