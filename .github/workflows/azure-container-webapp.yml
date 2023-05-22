@@ -57,7 +57,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t your-docker-image:latest .
+          docker build -t django-projectfile:latest .
           trivy image --password your-password your-image:your-tag
           
       - name: Push the image
