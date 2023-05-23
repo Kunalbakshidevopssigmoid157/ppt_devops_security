@@ -26,8 +26,7 @@ jobs:
         run: |
           docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }} .
           ${{ secrets.PRIVATE_KEY }}=$(docker trust generate key 2>&1)
-          echo "${{ secrets.PRIVATE_KEY }}" > private.key
-          docker trust sign --key private.key ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }}
+          docker trust signer add --key string ${{ secrets.PRIVATE_KEY }} ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }}
           
  
           
@@ -35,9 +34,3 @@ jobs:
         uses: aquasecurity/trivy-action@master
         with:
           image-ref:  ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }}
- 
-          
-     
-         
-
-        
