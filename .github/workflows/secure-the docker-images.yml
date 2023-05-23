@@ -20,10 +20,7 @@ jobs:
 
       - name: Generate Private Key
         run: |
-          openssl genrsa -out private.key 2048
-      - name: Save Private Key as Secret
-        run: |
-          echo "${{ secrets.PRIVATE_KEY }}" > private.key
+          openssl genrsa -out private.key 2048 >${{ secrets.PRIVATE_KEY }}
           
       - name: Log in to Docker Hub
         uses: docker/login-action@v1
