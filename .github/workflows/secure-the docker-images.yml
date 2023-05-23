@@ -28,7 +28,7 @@ jobs:
           ${{ secrets.PRIVATE_KEY }}=$(docker trust generate key 2>&1)
           echo "${{ secrets.PRIVATE_KEY }}" > private.key
           docker trust sign --key private.key ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }}
-          docker push  ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }}
+          
  
           
       - name: Run Trivy vulnerability scanner
