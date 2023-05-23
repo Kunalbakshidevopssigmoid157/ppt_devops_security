@@ -15,14 +15,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      - name: Install OpenSSL
-        run: sudo apt-get update && sudo apt-get install -y openssl
-
-      - name: Generate Private Key
-        run: |
-           ${{ secrets.PRIVATE_KEY }}=$(openssl genrsa 2048)
- 
- 
       - name: Log in to Docker Hub
         uses: docker/login-action@v1
         with:
@@ -33,8 +25,8 @@ jobs:
       - name: Push the image
         run: |
           docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }} .
-          ${{ secrets.DOCKER_KEY }}=$(docker trust key generate)
-          docker trust sign --local ${{ secrets.DOCKER_KEY }} ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }}
+          ${{ secrets.PRIVATE_KEY }}=$(docker trust generate key 2>&1 | tee /dev/tty)
+          docker trust sign --local ${{ secrets.PRIVATE_KEY }} ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }}
           docker push  ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }}
  
           
