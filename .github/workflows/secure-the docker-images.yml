@@ -33,7 +33,7 @@ jobs:
       - name: Push the image
         run: |
           docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }} .
-          ${{ secrets.DOCKER_KEY }}=$(docker trust key generate --passphrase ${{ secrets.PRIVATE_KEY }})
+          ${{ secrets.DOCKER_KEY }}=$(docker trust key generate)
           docker trust sign --local ${{ secrets.DOCKER_KEY }} ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }}
           docker push  ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }}
  
