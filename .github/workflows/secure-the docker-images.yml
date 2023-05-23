@@ -26,7 +26,7 @@ jobs:
         run: |
           docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }} .
           ${{ secrets.PRIVATE_KEY }}=$(docker trust generate key 2>&1)
-          docker trust sign --local ${{ secrets.PRIVATE_KEY }} ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }}
+          docker trust sign --key ${{ secrets.PRIVATE_KEY }} ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }}
           docker push  ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }}
  
           
