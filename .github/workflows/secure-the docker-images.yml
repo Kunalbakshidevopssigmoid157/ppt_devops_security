@@ -21,6 +21,13 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+          
+      - name: Azure Login
+        uses: Azure/login@v1
+        with:
+         creds: ${{ secrets.AZURE_CREDENTIALS }}
+         allow-no-subscriptions: true
+       
 
           
       - name: Push the image
@@ -33,12 +40,7 @@ jobs:
         with:
           image-ref:  ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }}
           
-      - name: Azure Login
-        uses: Azure/login@v1.4.6
-        with:
-         creds: ${{ secrets.AZURE_CREDENTIALS }}
-         allow-no-subscriptions: true
-  
+      
       - name: Kubernetes Set Context
         uses: Azure/k8s-set-context@v3.0
         with:
