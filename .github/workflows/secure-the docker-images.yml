@@ -33,10 +33,14 @@ jobs:
         with:
           image-ref:  ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }}
           
+      - name: Azure Login
+        uses: Azure/login@v1.4.6
+        with:
+         creds: ${{ secrets.AZURE_CREDENTIALS }}
+  
       - name: Kubernetes Set Context
         uses: Azure/k8s-set-context@v3.0
         with:
-           creds: ${{ secrets.AZURE_CREDENTIALS }}
            resource-group: ${{ secrets.AZURE_RESOURCE_GROUP }} 
            cluster-name:  ${{ secrets.AZURE_AKS_NAME }}
            
