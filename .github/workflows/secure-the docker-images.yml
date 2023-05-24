@@ -22,6 +22,9 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           
+      - name: Set up Azure CLI
+        uses: azure/setup-azure-cli@v1
+          
       - name: Azure Login
         uses: Azure/login@v1
         with:
