@@ -23,7 +23,7 @@ jobs:
           
       - name: Push the image
         run: |
-          docker build -t ${{ secrets.DOCKERHUB_IMAGE }} .
+          docker build -t  ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }} .
           docker tag ${{ secrets.DOCKERHUB_IMAGE }} ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }}:signed
           docker trust generate key kunal1
           docker trust signeradd --key kunal1.pub kunal1  ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }}
