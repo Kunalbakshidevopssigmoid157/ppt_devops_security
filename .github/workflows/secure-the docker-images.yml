@@ -27,7 +27,7 @@ jobs:
           docker build -t ${{ secrets.DOCKERHUB_IMAGE }} .
           docker tag ${{ secrets.DOCKERHUB_IMAGE }} ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }}:signed
           docker trust generate key kunal1
-          docker trust signeradd --key kunal1.pub kunal  ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }}
+          docker trust signer add --key kunal1.pub kunal ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }}
           docker trust sign ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }}:signed
           docker trust --inspect ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }}
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }}
