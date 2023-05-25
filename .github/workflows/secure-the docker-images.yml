@@ -25,10 +25,10 @@ jobs:
       - name: Push the image
         run: |
           docker build -t ${{ secrets.DOCKERHUB_IMAGE }} .
-          docker tag ${{ secrets.DOCKERHUB_IMAGE }} ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }}:signed
+          docker tag ${{ secrets.DOCKERHUB_IMAGE }} ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }}:latest
           docker trust generate key kunal1
           docker trust signer add --key kunal1.pub kunal ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }}
-          docker trust sign ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }}:signed
+          docker trust sign ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }}:latest
           docker trust --inspect ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }}
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }}
    
